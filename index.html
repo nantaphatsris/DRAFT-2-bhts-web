@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#05050a">
+  <title>Behind The Sound</title>
+  <!-- โหลดฟอนต์ DM Sans ให้หน้าตาเหมือนดีไซน์เดิม -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Prompt:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="landing-page">
+    <!-- พื้นหลังคลื่นเสียง SVG แบบเดิม: ไม่มี animation และไม่ตอบสนองต่อเมาส์ -->
+    <div class="wave-background" aria-hidden="true">
+      <svg viewBox="0 0 1440 600" preserveAspectRatio="none">
+        <defs>
+          <!-- ไล่สีเส้นคลื่นจากน้ำเงินไปม่วงและฟ้า -->
+          <linearGradient id="waveGradient" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#1768d9" stop-opacity=".38"/>
+            <stop offset="42%" stop-color="#573dff" stop-opacity=".72"/>
+            <stop offset="72%" stop-color="#286eff" stop-opacity=".7"/>
+            <stop offset="100%" stop-color="#00bdf5" stop-opacity=".48"/>
+          </linearGradient>
+        </defs>
+        <!-- วาดเส้นหลายเส้นซ้อนกันเพื่อให้เกิดเป็นคลื่นเสียง -->
+        <g fill="none" stroke="url(#waveGradient)" stroke-width="1.15">
+          <path d="M-40 280 C145 165 230 150 370 255 S570 390 735 250 970 100 1110 235 1300 360 1480 210"/>
+          <path d="M-40 290 C145 175 230 160 370 265 S570 400 735 260 970 110 1110 245 1300 370 1480 220"/>
+          <path d="M-40 300 C145 185 230 170 370 275 S570 410 735 270 970 120 1110 255 1300 380 1480 230"/>
+          <path d="M-40 310 C145 195 230 180 370 285 S570 420 735 280 970 130 1110 265 1300 390 1480 240"/>
+          <path d="M-40 320 C145 205 230 190 370 295 S570 430 735 290 970 140 1110 275 1300 400 1480 250"/>
+          <path d="M-40 330 C145 215 230 200 370 305 S570 440 735 300 970 150 1110 285 1300 410 1480 260"/>
+          <path d="M-40 340 C145 225 230 210 370 315 S570 450 735 310 970 160 1110 295 1300 420 1480 270"/>
+          <path d="M-40 350 C145 235 230 220 370 325 S570 460 735 320 970 170 1110 305 1300 430 1480 280"/>
+          <path d="M-40 360 C145 245 230 230 370 335 S570 470 735 330 970 180 1110 315 1300 440 1480 290"/>
+          <path d="M-40 370 C145 255 230 240 370 345 S570 480 735 340 970 190 1110 325 1300 450 1480 300"/>
+          <path d="M-40 380 C145 265 230 250 370 355 S570 490 735 350 970 200 1110 335 1300 460 1480 310"/>
+          <path d="M-40 390 C145 275 230 260 370 365 S570 500 735 360 970 210 1110 345 1300 470 1480 320"/>
+          <path d="M-40 400 C145 285 230 270 370 375 S570 510 735 370 970 220 1110 355 1300 480 1480 330"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- เนื้อหาหลักของหน้า Landing Page -->
+    <section class="hero-content">
+      <h1>Behind The <span>Sound</span></h1>
+      <p class="tagline">Every Sound Has a Story.</p>
+
+      <!-- text-wrap: balance ใน CSS ช่วยกระจายข้อความให้แต่ละบรรทัดสมดุล -->
+      <p class="description">
+        Discover how sound works, explore the art of sound design, and experience how simple
+        techniques can transform the way you hear.
+      </p>
+
+      <!-- ปุ่มทั้งสองอยู่ตำแหน่งเดิม แต่สลับรูปแบบสีตามที่ขอ -->
+      <div class="auth-buttons">
+        <a class="auth-button login-button" href="login.html">Log In</a>
+        <a class="auth-button signup-button" href="signup.html">Sign Up</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

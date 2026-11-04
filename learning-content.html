@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#000000">
+
+  <title>Learning | Behind The Sound</title>
+
+  <!-- โหลดฟอนต์ DM Sans ให้เหมือนหน้าอื่น -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+  <!-- เชื่อม CSS ของหน้า Learning -->
+  <link rel="stylesheet" href="learning-content.css">
+</head>
+
+<body>
+
+  <!-- =====================================
+       HEADER — แถบด้านบน
+       ===================================== -->
+
+  <header class="topbar">
+
+    <!-- ปุ่มเมนูสามขีด -->
+    <button class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open menu"
+            aria-expanded="false">
+      ☰
+    </button>
+
+    <!-- ชื่อเว็บไซต์ -->
+    <a class="brand" href="learning.html">
+      Behind The Sound
+    </a>
+
+  </header>
+
+
+  <!-- =====================================
+       SIDE MENU — เมนูด้านซ้าย
+       ===================================== -->
+
+  <aside class="side-menu" id="sideMenu">
+
+    <button class="menu-close"
+            id="menuClose"
+            aria-label="Close menu">
+      ×
+    </button>
+
+    <nav class="menu-navigation">
+
+      <a class="menu-link" href="pretest.html">
+        Pre Test
+      </a>
+
+      <a class="menu-link active" href="learning-content.html">
+        Learning
+      </a>
+
+      <a class="menu-link" href="practice.html">
+        Practice
+      </a>
+
+      <a class="menu-link" href="posttest.html">
+        Post Test
+      </a>
+
+    </nav>
+
+    <button class="menu-logout" id="logoutButton">
+      Log Out
+    </button>
+
+  </aside>
+
+  <!-- ฉากหลังเมนู -->
+  <div class="menu-backdrop" id="menuBackdrop"></div>
+
+
+  <!-- =====================================
+       MAIN CONTENT
+       เนื้อหาหลักของหน้า Learning
+       ===================================== -->
+
+  <main class="learning-content-main">
+
+    <!-- หัวข้อหน้า -->
+    <section class="page-intro">
+
+      <p class="eyebrow">
+        LEARNING MATERIALS
+      </p>
+
+      <h1>
+        Explore <span>Sound.</span>
+      </h1>
+
+      <p class="intro-description">
+        Discover the science behind sound and learn
+        how audio signals can be shaped and transformed.
+      </p>
+
+    </section>
+
+
+    <!-- =====================================
+         CATEGORY 1
+         FUNDAMENTAL OF SOUND
+         ===================================== -->
+
+    <section class="learning-categories">
+
+      <a href="fundamental.html"
+         class="category-card fundamental-card">
+
+        <!-- ไอคอนคลื่นเสียง -->
+        <div class="category-icon">
+
+          <svg viewBox="0 0 48 48"
+               aria-hidden="true">
+
+            <path d="M4 24h5l5-12 8 24 8-24 5 12h9"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"/>
+
+          </svg>
+
+        </div>
+
+        <!-- ข้อมูลหมวด -->
+        <div class="category-info">
+
+          <h2>
+            Fundamental of Sound
+          </h2>
+
+          <p>
+            Learn the basics of sound, waveforms,
+            amplitude, and frequency.
+          </p>
+
+          <span class="category-topics">
+            Sound · Waveform · Frequency
+          </span>
+
+        </div>
+
+        <!-- ลูกศร -->
+        <div class="category-arrow">
+          →
+        </div>
+
+      </a>
+
+
+      <!-- =====================================
+           CATEGORY 2
+           SIGNAL PROCESSING
+           ===================================== -->
+
+      <a href="signal-processing.html"
+         class="category-card processing-card">
+
+        <!-- ไอคอน Equalizer -->
+        <div class="category-icon">
+
+          <svg viewBox="0 0 48 48"
+               aria-hidden="true">
+
+            <path d="M10 8v32
+                     M24 8v32
+                     M38 8v32"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"/>
+
+            <rect x="5" y="15" width="10" height="7"
+                  rx="2"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"/>
+
+            <rect x="19" y="27" width="10" height="7"
+                  rx="2"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"/>
+
+            <rect x="33" y="11" width="10" height="7"
+                  rx="2"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"/>
+
+          </svg>
+
+        </div>
+
+        <!-- ข้อมูลหมวด -->
+        <div class="category-info">
+
+
+
+          <h2>
+            Signal Processing
+          </h2>
+
+          <p>
+            Explore audio effects and techniques
+            used to modify and control sound.
+          </p>
+
+          <span class="category-topics">
+            EQ · Filter · Compressor · Effects
+          </span>
+
+        </div>
+
+        <!-- ลูกศร -->
+        <div class="category-arrow">
+          →
+        </div>
+
+      </a>
+
+    </section>
+
+
+
+
+  </main>
+
+
+  <!-- JavaScript สำหรับเมนูและระบบสมาชิก -->
+  <script type="module" src="learning.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,530 @@
+
+/* =====================================================
+   LEARNING CONTENT PAGE
+   ธีมหลักของหน้าเลือกหมวดบทเรียน
+   ===================================================== */
+
+/* ตั้งค่าพื้นฐาน */
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --purple: #6552ff;
+  --purple-light: #a99dff;
+  --deep-purple: #24147e;
+  --white: #ffffff;
+  --muted: #b8b4cf;
+}
+
+/* พื้นหลังเว็บไซต์ */
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 35%,
+      rgba(69, 49, 181, 0.17),
+      transparent 48%
+    ),
+    #000000;
+
+  color: var(--white);
+  font-family: "DM Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+.topbar {
+  height: 68px;
+  padding: 0 4.2%;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+
+  position: relative;
+  z-index: 5;
+}
+
+/* ปุ่มสามขีด */
+.menu-toggle {
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 27px;
+  cursor: pointer;
+  padding: 7px 9px;
+}
+
+/* ชื่อเว็บไซต์ */
+.brand {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: -0.6px;
+}
+
+
+/* =====================================================
+   SIDE MENU
+   เมนูเลื่อนออกมาจากด้านซ้าย
+   ===================================================== */
+
+.side-menu {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+
+  width: min(280px, 82vw);
+  height: 100vh;
+
+  padding: 70px 25px 25px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: linear-gradient(
+    180deg,
+    #10092e,
+    #17105d
+  );
+
+  transform: translateX(-105%);
+  transition: transform 0.3s ease;
+}
+
+.side-menu.open {
+  transform: translateX(0);
+}
+
+.menu-navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.menu-close {
+  position: absolute;
+  top: 14px;
+  right: 19px;
+
+  border: 0;
+  background: none;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.menu-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 800;
+  transition: color 0.2s ease;
+}
+
+.menu-link:hover,
+.menu-link.active {
+  color: var(--purple-light);
+}
+
+.menu-logout {
+  margin-top: auto;
+  padding: 11px;
+
+  border: 1px solid #8e80ff;
+  border-radius: 8px;
+
+  color: #fff;
+  background: transparent;
+
+  font: 700 12px "DM Sans", sans-serif;
+  cursor: pointer;
+}
+
+.menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 8;
+
+  background: rgba(0, 0, 0, 0.6);
+
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+}
+
+.menu-backdrop.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* =====================================================
+   MAIN CONTENT
+   พื้นที่เนื้อหาหลัก
+   ===================================================== */
+
+.learning-content-main {
+  width: min(950px, 90%);
+  margin: 0 auto;
+
+  padding: 75px 0 70px;
+}
+
+
+/* =====================================================
+   PAGE INTRO
+   หัวข้อหน้า
+   ===================================================== */
+
+.page-intro {
+  text-align: center;
+  max-width: 650px;
+
+  margin: 0 auto 55px;
+}
+
+.eyebrow {
+  margin: 0 0 13px;
+
+  color: var(--purple-light);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+}
+
+.page-intro h1 {
+  margin: 0;
+
+  font-size: clamp(34px, 5vw, 48px);
+  line-height: 1.15;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+}
+
+.page-intro h1 span {
+  background: linear-gradient(
+    100deg,
+    #8c7cff,
+    #d5a8ff 55%,
+    #6f9cff
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.intro-description {
+  max-width: 520px;
+  margin: 17px auto 0;
+
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+
+/* =====================================================
+   LEARNING CATEGORY CARDS
+   แถบหมวดบทเรียนทั้งสองแถบ
+   ===================================================== */
+
+.learning-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* รูปแบบพื้นฐานของแต่ละแถบ */
+.category-card {
+  position: relative;
+
+  min-height: 185px;
+  padding: 30px 32px;
+
+  display: flex;
+  align-items: center;
+  gap: 27px;
+
+  border: 1px solid rgba(160, 145, 255, 0.25);
+  border-radius: 19px;
+
+  background: linear-gradient(
+    110deg,
+    rgba(35, 27, 82, 0.95),
+    rgba(12, 10, 27, 0.98)
+  );
+
+  color: #fff;
+  text-decoration: none;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+/* วงแสงตกแต่งมุมขวาบน */
+.category-card::before {
+  content: "";
+
+  position: absolute;
+  width: 190px;
+  height: 190px;
+
+  right: -65px;
+  top: -100px;
+
+  border-radius: 50%;
+  background: rgba(112, 91, 255, 0.12);
+
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+/* เอฟเฟกต์เมื่อเลื่อนเมาส์ */
+.category-card:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(169, 157, 255, 0.75);
+
+  background: linear-gradient(
+    110deg,
+    rgba(48, 37, 112, 0.98),
+    rgba(16, 12, 38, 0.98)
+  );
+}
+
+
+/* =====================================================
+   CATEGORY ICON
+   ไอคอนประจำหมวด
+   ===================================================== */
+
+.category-icon {
+  width: 72px;
+  height: 72px;
+
+  flex: 0 0 72px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 19px;
+
+  background: linear-gradient(
+    135deg,
+    #5947ee,
+    #8d68ff
+  );
+
+  box-shadow:
+    0 8px 28px rgba(89, 71, 238, 0.28);
+
+  color: #fff;
+}
+
+.category-icon svg {
+  width: 39px;
+  height: 39px;
+}
+
+
+/* =====================================================
+   CATEGORY TEXT
+   ชื่อและรายละเอียดหมวด
+   ===================================================== */
+
+.category-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.category-number {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #a99dff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.category-info h2 {
+  margin: 0 0 9px;
+
+  font-size: clamp(19px, 3vw, 24px);
+  font-weight: 900;
+  letter-spacing: -0.5px;
+}
+
+.category-info p {
+  max-width: 530px;
+  margin: 0;
+
+  color: #bdb8d5;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.category-topics {
+  display: block;
+  margin-top: 13px;
+
+  color: #a99dff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+
+/* =====================================================
+   CATEGORY ARROW
+   ลูกศรด้านขวา
+   ===================================================== */
+
+.category-arrow {
+  flex: 0 0 auto;
+
+  color: #b6aaff;
+  font-size: 27px;
+
+  transition: transform 0.25s ease;
+}
+
+.category-card:hover .category-arrow {
+  transform: translateX(6px);
+}
+
+
+/* =====================================================
+   BOTTOM NOTE
+   ข้อความปิดท้ายหน้า
+   ===================================================== */
+
+.bottom-note {
+  margin: 55px 0 0;
+
+  text-align: center;
+
+  color: #77718f;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+   ปรับหน้าตาให้เหมาะกับโทรศัพท์
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+  .topbar {
+    height: 58px;
+    padding: 0 5%;
+    gap: 12px;
+  }
+
+  .brand {
+    font-size: 16px;
+  }
+
+  .learning-content-main {
+    width: 90%;
+    padding-top: 48px;
+  }
+
+  .page-intro {
+    margin-bottom: 35px;
+  }
+
+  .intro-description {
+    font-size: 13px;
+  }
+
+  .learning-categories {
+    gap: 16px;
+  }
+
+  .category-card {
+    min-height: 165px;
+    padding: 23px 19px;
+    gap: 16px;
+    border-radius: 16px;
+  }
+
+  .category-icon {
+    width: 55px;
+    height: 55px;
+    flex-basis: 55px;
+    border-radius: 14px;
+  }
+
+  .category-icon svg {
+    width: 31px;
+    height: 31px;
+  }
+
+  .category-info h2 {
+    font-size: 17px;
+  }
+
+  .category-info p {
+    font-size: 11px;
+  }
+
+  .category-topics {
+    font-size: 10px;
+    line-height: 1.6;
+  }
+
+  .category-arrow {
+    font-size: 21px;
+  }
+
+  .bottom-note {
+    font-size: 9px;
+    margin-top: 40px;
+  }
+}
+
+/* จอเล็กมาก */
+@media (max-width: 360px) {
+
+  .category-card {
+    gap: 12px;
+    padding: 18px 13px;
+  }
+
+  .category-icon {
+    width: 45px;
+    height: 45px;
+    flex-basis: 45px;
+  }
+
+  .category-info h2 {
+    font-size: 15px;
+  }
+
+}

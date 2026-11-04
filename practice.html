@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <title>Practice | Behind The Sound</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="practice.css">
+</head>
+
+<body>
+
+  <header class="topbar">
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+    <a class="brand" href="learning.html">Behind The Sound</a>
+  </header>
+
+  <!-- SIDE MENU -->
+  <aside class="side-menu" id="sideMenu" aria-hidden="true">
+    <button class="menu-close" id="menuClose" aria-label="Close menu">×</button>
+
+    <nav class="menu-navigation">
+      <a class="menu-link" href="pretest.html">Pre Test</a>
+      <a class="menu-link" href="learning.html">Learning</a>
+      <a class="menu-link active" href="practice.html">Practice</a>
+      <a class="menu-link" href="posttest.html">Post Test</a>
+    </nav>
+
+    <button class="menu-logout" id="logoutButton">Log Out</button>
+  </aside>
+
+  <div class="menu-backdrop" id="menuBackdrop"></div>
+
+  <!-- PRACTICE HOME -->
+  <main class="practice-main" id="practiceHome">
+
+    <section class="intro">
+      <h1>Practice <span>Your Skills.</span></h1>
+      <p>
+        Test your knowledge and put what you have learned
+        about sound and signal processing into practice.
+      </p>
+    </section>
+
+    <section class="practice-options">
+
+      <button class="activity-card" id="theoryButton">
+        <div class="activity-icon">
+          <svg viewBox="0 0 48 48">
+            <path d="M10 8h20a5 5 0 0 1 5 5v27H15a5 5 0 0 1-5-5V8Z"/>
+            <path d="M15 8v27a5 5 0 0 0 5 5"/>
+            <path d="M17 17h12M17 23h12M17 29h8"/>
+          </svg>
+        </div>
+
+        <div class="activity-text">
+          <h2>Theory</h2>
+          <p>
+            Test your understanding of sound fundamentals
+            and signal processing concepts.
+          </p>
+          <strong>5 Questions · Multiple Choice</strong>
+        </div>
+
+        <span class="activity-arrow">⟶</span>
+      </button>
+
+      <button class="activity-card" id="practicalButton">
+        <div class="activity-icon">
+          <svg viewBox="0 0 48 48">
+            <path d="M10 8v32M24 8v32M38 8v32"/>
+            <circle cx="10" cy="17" r="4"/>
+            <circle cx="24" cy="29" r="4"/>
+            <circle cx="38" cy="20" r="4"/>
+          </svg>
+        </div>
+
+        <div class="activity-text">
+          <h2>Practical</h2>
+          <p>
+            Explore audio tools and practice adjusting
+            sound through interactive exercises.
+          </p>
+          <strong>Audio · Effects · Experiment</strong>
+        </div>
+
+        <span class="activity-arrow">⟶</span>
+      </button>
+
+    </section>
+  </main>
+
+  <!-- PRACTICAL AUDIO PLAYER -->
+  <main class="practical-page" id="practicalPage" hidden>
+
+    <button class="back-button" id="backFromPractical">
+      ← Back to Practice
+    </button>
+
+    <section class="practical-heading">
+      <span class="section-label">PRACTICE / PRACTICAL</span>
+      <h1>Practical</h1>
+      <p>Listen to audio samples and explore different sounds.</p>
+    </section>
+
+    <section class="audio-workspace">
+
+      <!-- AUDIO LIBRARY -->
+      <div class="audio-library">
+        <div class="library-icon">♫</div>
+
+        <h2>Audio Library</h2>
+        <p class="library-description">
+          Select an audio file to start listening.
+        </p>
+
+        <label for="audioSelect">Choose Audio</label>
+
+        <select id="audioSelect">
+          <option value="">Select an audio file</option>
+          <option value="sound-01">Sound 01</option>
+          <option value="sound-02">Sound 02</option>
+          <option value="sound-03">Sound 03</option>
+          <option value="sound-04">Sound 04</option>
+          <option value="sound-05">Sound 05</option>
+          <option value="sound-06">Sound 06</option>
+          <option value="sound-07">Sound 07</option>
+        </select>
+
+        <p class="audio-hint">
+          Choose a sound from the dropdown menu.
+        </p>
+      </div>
+
+      <!-- AUDIO PLAYER -->
+      <div class="audio-player">
+
+        <div class="player-art">
+          <span>♫</span>
+        </div>
+
+        <div class="player-info">
+          <span class="section-label">NOW PLAYING</span>
+          <h2 id="audioTitle">No Audio Selected</h2>
+          <p id="audioStatus">Select an audio to start listening</p>
+        </div>
+
+        <audio id="audioElement" preload="metadata"></audio>
+
+        <div class="audio-progress">
+          <input
+            type="range"
+            id="audioProgress"
+            min="0"
+            max="100"
+            value="0"
+            disabled
+          >
+
+          <div class="audio-time">
+            <span id="currentTime">00:00</span>
+            <span id="duration">00:00</span>
+          </div>
+        </div>
+
+        <div class="player-controls">
+          <button class="play-button" id="playButton" disabled>
+            ▶ Play
+          </button>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- THEORY QUIZ -->
+  <main class="quiz-page" id="theoryPage" hidden>
+
+    <button class="back-button" id="backFromTheory">
+      ← Back to Practice
+    </button>
+
+    <div class="test-layout">
+
+      <section class="question-area">
+
+        <div class="practice-heading">
+          <span class="section-label">PRACTICE / THEORY</span>
+          <h1>Theory</h1>
+          <p>Test your understanding of Sound and Signal Processing.</p>
+        </div>
+
+        <div class="question-heading">
+          <span class="question-count" id="questionCount">
+            QUESTION 01 / 05
+          </span>
+          <h2 id="questionText"></h2>
+        </div>
+
+        <div class="answer-list" id="answerList"></div>
+
+        <div class="question-controls">
+          <button class="previous-button" id="previousButton" disabled>
+            Previous
+          </button>
+
+          <button class="next-button" id="nextButton" disabled>
+            Next
+          </button>
+        </div>
+
+        <p class="feedback" id="feedback" aria-live="polite"></p>
+      </section>
+
+      <aside class="question-panel">
+        <h3>Questions</h3>
+        <div class="number-grid" id="numberGrid"></div>
+
+        <p class="answered-count" id="answeredCount">
+          0 / 5 answered
+        </p>
+
+        <button class="submit-button" id="submitButton">
+          Submit
+        </button>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- RESULT MODAL -->
+  <div class="result-modal" id="resultModal" aria-hidden="true">
+    <div class="result-card">
+
+      <span class="section-label">PRACTICE THEORY</span>
+      <h2>Practice Completed!</h2>
+
+      <div class="result-score" id="resultScore"></div>
+      <p id="resultMessage"></p>
+
+      <div class="explanation-list" id="explanationList"></div>
+
+      <button id="closeResult">Back to Practice</button>
+    </div>
+  </div>
+
+  <script type="module" src="practice.js"></script>
+
+</body>
+</html>

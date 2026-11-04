@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#000000">
+  <title>Learning | Behind The Sound</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="learning.css">
+</head>
+<body>
+<header class="topbar">
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+  <a class="brand" href="learning.html">Behind The Sound</a>
+</header>
+<div class="welcome-toast" id="welcomeToast" role="status" aria-live="polite" aria-hidden="true"><div class="toast-content"><strong>Welcome back!</strong><p id="toastUserName">Learner</p></div></div>
+<aside class="side-menu" id="sideMenu" aria-hidden="true">
+  <button class="menu-close" id="menuClose" aria-label="Close menu">×</button>
+  <nav class="menu-navigation" aria-label="Main menu">
+    <a class="menu-link" href="pretest.html">Pre Test</a><a class="menu-link active" href="learning.html" aria-current="page">Learning</a><a class="menu-link" href="practice.html">Practice</a><a class="menu-link" href="posttest.html">Post Test</a>
+  </nav><button class="menu-logout" id="logoutButton">Log Out</button>
+</aside><div class="menu-backdrop" id="menuBackdrop"></div>
+<main class="learning-main">
+  <section class="intro"><h1>Explore <span>Sound.</span></h1><p class="intro-copy">Discover the science behind sound and learn how audio signals can be shaped<br class="desktop-break"> and transformed.</p></section>
+  <section class="learning-options" aria-label="Learning topics">
+    <a class="activity-card" href="fundamental.html"><div class="activity-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M5 25h8l6-13 9 26 7-19 4 6h4"/></svg></div><div class="activity-text"><h2>Fundamental of Sound</h2><p>Learn the basics of sound, waveforms, amplitude, and frequency.</p><strong>Sound · Waveform · Frequency</strong></div><span class="activity-arrow">⟶</span></a>
+    <a class="activity-card" href="signal-processing.html"><div class="activity-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M10 8v32M24 8v32M38 8v32M5 17h10M19 29h10M33 20h10"/><circle cx="10" cy="17" r="4"/><circle cx="24" cy="29" r="4"/><circle cx="38" cy="20" r="4"/></svg></div><div class="activity-text"><h2>Signal Processing</h2><p>Explore audio effects and techniques used to modify and control sound.</p><strong>EQ · Filter · Compressor · Effects</strong></div><span class="activity-arrow">⟶</span></a>
+  </section>
+  <a class="pretest-banner" id="pretestBanner" href="pretest.html"><div class="pretest-banner-copy"><span class="banner-kicker">START HERE</span><h2>Take your Pre Test</h2><p>Find out what you already know before starting your sound journey.</p></div><span class="banner-action">Start test →</span></a>
+</main>
+<script type="module" src="learning.js"></script>
+</body></html>

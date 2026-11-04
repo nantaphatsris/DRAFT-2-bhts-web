@@ -1,0 +1,172 @@
+/* =========================================================
+   BEHIND THE SOUND - LANDING PAGE
+   ไฟล์นี้ควบคุมสี ฟอนต์ ระยะห่าง และการจัดวางหน้าแรก
+   ========================================================= */
+
+/* 1) ค่าหลักที่ใช้ซ้ำในเว็บ เปลี่ยนสีหลักได้จากตรงนี้ */
+* { box-sizing: border-box; }
+:root {
+  --white: #f7f6ff;
+  --muted: #c7c4dc;
+  --purple: #6554ff;
+  --blue: #27bfff;
+}
+
+/* 2) ตั้งค่าพื้นฐานของหน้าเว็บ */
+html, body { margin: 0; min-height: 100%; }
+body {
+  min-height: 100vh;
+  background: #05050a;
+  color: var(--white);
+  font-family: "DM Sans", sans-serif;
+}
+button, a { font: inherit; }
+
+/* 3) พื้นหลังดำอมม่วงและแสงเรืองจาง ๆ ตรงกลาง */
+.landing-page {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  padding: 70px 24px;
+  isolation: isolate;
+  background: radial-gradient(ellipse at 50% 52%, #17113c 0%, #090817 42%, #05050a 78%);
+}
+.landing-page::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: min(1050px, 95vw);
+  height: 540px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse, #3824b52b 0%, transparent 68%);
+  filter: blur(20px);
+}
+
+/* 4) คลื่นเสียง SVG อยู่หลังข้อความ
+   ถ้าต้องการขยับตำแหน่งคลื่น ให้ปรับ inset หรือ opacity ตรงนี้ */
+.wave-background {
+  position: absolute;
+  z-index: -1;
+  inset: 14% -2% 12%;
+  overflow: hidden;
+  opacity: .82;
+  pointer-events: none; /* เมาส์จะไม่ไปรบกวนพื้นหลัง */
+}
+.wave-background svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 6px #344cff45);
+}
+/* ไม่มี animation / transform ตามเมาส์ คลื่นจึงอยู่นิ่ง */
+
+/* 5) กล่องเนื้อหากลางหน้า */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  width: min(900px, 100%);
+  text-align: center;
+  margin-top: -2px;
+}
+
+/* 6) หัวข้อหลัก: คำว่า Sound ใช้ gradient */
+h1 {
+  margin: 0;
+  color: var(--white);
+  font-size: clamp(48px, 7.4vw, 94px);
+  line-height: 1.08;
+  letter-spacing: -4.5px;
+  font-weight: 800;
+}
+h1 span {
+  background: linear-gradient(100deg, #a89aff 5%, #7061ff 48%, #38c4ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* 7) คำโปรยใต้หัวข้อ */
+.tagline {
+  margin: 30px 0 0;
+  color: #f0efff;
+  font-size: clamp(18px, 2.1vw, 25px);
+  font-weight: 700;
+}
+
+/* 8) คำอธิบายภาษาอังกฤษ
+   text-wrap: balance ช่วยจัดบรรทัดให้ความยาวใกล้เคียงกัน */
+.description {
+  max-width: 800px;
+  margin: 25px auto 0;
+  color: #d0cee0;
+  font-size: clamp(14px, 1.35vw, 17px);
+  line-height: 1.85;
+  text-wrap: balance;
+}
+
+/* 9) ปุ่ม Log In และ Sign Up วางเรียงแนวนอน */
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(18px, 4vw, 42px);
+  margin-top: 42px;
+}
+.auth-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  width: clamp(150px, 18vw, 205px);
+  min-height: 60px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: clamp(17px, 1.8vw, 22px);
+  font-weight: 800;
+  cursor: pointer;
+  transition: filter .18s ease, transform .18s ease;
+}
+
+/* Log In: ปุ่มพื้นม่วงไล่สี (สลับจากเวอร์ชันก่อน) */
+.login-button {
+  border: 0;
+  background: linear-gradient(105deg, #6654ff 0%, #2110bd 100%);
+  box-shadow: 0 7px 24px #2511b744;
+}
+
+/* Sign Up: ขอบม่วงไล่สีและพื้นด้านในดำ (สลับจากเวอร์ชันก่อน) */
+.signup-button {
+  border: 5px solid transparent;
+  background:
+    linear-gradient(#090821, #090821) padding-box,
+    linear-gradient(105deg, #6654ff, #1800a8) border-box;
+}
+.auth-button:hover { filter: brightness(1.12); transform: translateY(-2px); }
+.auth-button:focus-visible { outline: 2px solid #b8b0ff; outline-offset: 4px; }
+
+/* 10) ปรับหน้าเว็บให้เหมาะกับมือถือ */
+@media (max-width: 650px) {
+  .landing-page { padding: 60px 20px; }
+  .wave-background { inset: 20% -55% 16%; opacity: .65; }
+  h1 { font-size: clamp(39px, 10vw, 60px); letter-spacing: -2.5px; }
+  .tagline { margin-top: 22px; }
+  .description { margin-top: 18px; font-size: 13px; }
+  .auth-buttons { gap: 12px; margin-top: 30px; }
+  .auth-button {
+    width: min(42vw, 170px);
+    min-height: 52px;
+    padding: 9px 12px;
+    font-size: 16px;
+  }
+  .signup-button { border-width: 4px; }
+}
+
+/* 11) เคารพการตั้งค่าลดการเคลื่อนไหวของอุปกรณ์ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; }
+}

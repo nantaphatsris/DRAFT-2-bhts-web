@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#000000">
+  <title>Pre-Test | Behind The Sound</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="pretest.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="learning.html">Behind The Sound</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+  </header>
+  <aside class="side-menu" id="sideMenu">
+    <button class="menu-close" id="menuClose" aria-label="Close menu">×</button>
+    <a class="menu-link active" href="pretest.html">Pre - Test</a>
+    <a class="menu-link" href="#practice" id="practiceLink">Practice</a>
+    <a class="menu-link" href="#posttest" id="posttestLink">Post - Test</a>
+    <button class="menu-logout" id="logoutButton">Log Out</button>
+  </aside>
+  <div class="menu-backdrop" id="menuBackdrop"></div>
+
+  <main class="test-layout">
+    <section class="question-area">
+      <div class="question-heading">
+        <span class="question-count" id="questionCount">QUESTION 01 / 05</span>
+        <h1 id="questionText">Frequency มีความสัมพันธ์กับคุณสมบัติใดของเสียง?</h1>
+      </div>
+      <div class="answer-list" id="answerList"></div>
+      <div class="question-controls">
+        <button class="previous-button" id="previousButton">Previous</button>
+        <button class="next-button" id="nextButton">Next</button>
+      </div>
+      <p class="feedback" id="feedback" aria-live="polite"></p>
+    </section>
+
+    <aside class="question-panel">
+      <div class="number-grid" id="numberGrid"></div>
+      <p class="answered-count" id="answeredCount">0 / 5 answered</p>
+      <button class="submit-button" id="submitButton">Submit</button>
+    </aside>
+  </main>
+  <div class="result-modal" id="resultModal" aria-hidden="true">
+    <div class="result-card">
+      <h2>Pre-test completed!</h2>
+      <p id="resultText"></p>
+      <button id="closeResult">Back to Learning</button>
+    </div>
+  </div>
+  <script type="module" src="pretest.js"></script>
+</body>
+</html>

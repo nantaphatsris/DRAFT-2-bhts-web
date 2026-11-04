@@ -1,0 +1,16 @@
+// Firebase Console > Firestore Database > Rules
+// กฎนี้อนุญาตให้ผู้ใช้ที่เข้าสู่ระบบอ่าน/แก้ไขเอกสารของตัวเองเท่านั้น
+// ข้อมูลผลการเรียนในอนาคตควรเก็บไว้ใต้ users/{uid}/learningResults/{resultId}
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{userId} {
+      allow create: if request.auth != null && request.auth.uid == userId;
+      allow read, update, delete: if request.auth != null && request.auth.uid == userId;
+
+      match /learningResults/{resultId} {
+        allow read, create, update, delete: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+  }
+}
